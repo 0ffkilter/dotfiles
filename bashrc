@@ -84,9 +84,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # some more ls aliases
-alias ll='ls -alhF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
+alias ll='ls -halhF --color=auto'
+alias la='ls -hA --color=auto'
+alias l='ls -hCF --color=auto'
 
 # annoying typos
 alias ks='ls'
@@ -95,6 +95,8 @@ alias cd..='cd ..'
 alias cim='vim'
 alias sl='ls'
 alias shh='ssh'
+alias reboot='sudo reboot 0'
+alias shutdown='sudo shutdown 0'
 
 # tmux 256 colors
 alias tmux="TERM=screen-256color-bce tmux -2"
@@ -103,9 +105,6 @@ alias install='sudo apt-get install'
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get upgrade'
 
-# pulseaudio sucks
-alias restartpulse='sudo killall -9 pulseaudio; pulseaudio >/dev/null 2>&1 &'
-
 # less with color
 alias less='less -r'
 
@@ -113,8 +112,8 @@ alias less='less -r'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# media nfs mount shortcut
-alias phlipnfs='sudo mount -t nfs 192.168.0.43:/export/media ~/media'
+#sml wrapping
+alias sml='rlwrap sml'
 
 # makes a directory and cd's into it
 function mcd() {
@@ -183,12 +182,6 @@ ANDROID_PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_NDK
 ### Added by the Heroku Toolbelt
 export HEROKU_TOOLBELT=/usr/local/heroku/bin
 
-# Arduino
-ARDUINO_SDK=$HOME/arduino-1.0.4
-
-# Haskell
-CABAL_BIN=$HOME/.cabal/bin
-
 # Git submodule tools
 GIT_SUBMODULE_TOOLS=$HOME/git-submodule-tools
 
@@ -202,8 +195,13 @@ SPARK_BIN=$SPARK_HOME/bin
 # LD Path
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$INTEL_HOME/lib/intel64
 
+# ADB path
+
+ADB_PATH=$HOME/adb/platform-tools
+
+
 # PATH
-export PATH=$PATH:$HEROKU_TOOLBELT:$ANDROID_PATH:$ECLIPSE:$TIDE_SDK:$ARDUINO_SDK:$JAVA_HOME:$GIT_SUBMODULE_TOOLS:$CABAL_BIN:$IDEA_BIN:$ANACONDA_HOME:$INTEL_BIN:$SPARK_BIN
+export PATH=$PATH:$HEROKU_TOOLBELT:$ANDROID_PATH:$ECLIPSE:$TIDE_SDK:$JAVA_HOME:$GIT_SUBMODULE_TOOLS:$IDEA_BIN:$ANACONDA_HOME:$INTEL_BIN:$SPARK_BIN:$ADB_PATH
 
 ## SHELL VARIABLES }}}
 
