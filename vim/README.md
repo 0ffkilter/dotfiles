@@ -46,7 +46,7 @@ Compile vim
         $ ./configure --enable-fail-if-missing --enable-pythoninterp=yes \
             --enable-rubyinterp=dynamic --enable-cscope --enable-multibyte \
             --enable-fontset --with-features=huge --enable-luainterp=yes \
-            --with-luajit --enable-gui=no --with-x --with-compiledby="Philip"
+            --with-luajit --enable-gui=no --with-x --with-compiledby="Matt"
         $ make
         $ sudo make install
         $ make distclean
