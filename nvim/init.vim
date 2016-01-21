@@ -348,35 +348,6 @@
 
 " vim-clang }}}
 
-" rust.vim - Rust file detection and syntax highlighting {{{
-
-    NeoBundleLazy 'rust-lang/rust.vim',
-                \ { 'autoload': { 'filetypes': ['rust'] }}
-
-" }}}
-
-" Racer - code completion for Rust {{{
-
-    NeoBundleLazy 'phildawes/racer',
-                \ {
-                \   'autoload': { 'filetypes': ['rust'] },
-                \   'build_commands': 'cargo',
-                \   'build': { 'unix': 'cargo build --release' }
-                \ }
-
-    let $RUST_SRC_PATH = $HOME . '/dev/rust/src/'
-    let g:racer_cmd = $HOME . '/dev/dotfiles/vim/bundle/racer/target/release/racer'
-
-" }}}
-
-" ghcmod.vim - Haskell linting and syntax checking {{{
-
-    NeoBundleLazy 'eagletmt/ghcmod-vim',
-                \ { 'autoload': { 'filetypes': ['haskell'] },
-                \   'external_commands': 'ghc-mod' }
-
-" ghcmod.vim }}}
-
 " javacomplete - Java omnicomplete {{{
 
     "NeoBundleLazy 'Shougo/javacomplete',
@@ -387,13 +358,6 @@
                 "\     'unix': 'javac ./autoload/Reflection.java',
                 "\   }
                 "\ }
-
-" }}}
-
-" vim-scala - Scala syntax plugin {{{
-
-    NeoBundleLazy 'derekwyatt/vim-scala',
-                \ { 'autoload': { 'filetypes': ['scala'] }}
 
 " }}}
 
@@ -457,13 +421,6 @@
 
     NeoBundleLazy 'othree/html5.vim',
                 \ { 'autoload': { 'filetypes': ['html'] }}
-
-" }}}
-
-" vim-jade - Jade template engine syntax and highlighting {{{
-
-    NeoBundleLazy 'digitaltoad/vim-jade',
-                \ { 'autoload': { 'filetypes': ['jade'] }}
 
 " }}}
 
