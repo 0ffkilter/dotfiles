@@ -1,8 +1,8 @@
 [user]
-    name = Philip Hayes
-    email = philiphayes9@gmail.com
-    editor = nvim
+    name = Matthew Gee
+    email = matthew.gee@pomona.edu
+    editor = vim
 [core]
-    editor = nvim
+    editor = vim
 [push]
 	default = simple
