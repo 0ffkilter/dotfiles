@@ -101,6 +101,8 @@ alias shutdown='sudo shutdown 0'
 # tmux 256 colors
 alias tmux="TERM=screen-256color-bce tmux -2"
 
+alias vim='nvim'
+
 alias install='sudo apt-get install'
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get upgrade'
@@ -138,10 +140,6 @@ fi
 ## ENVIRONMENT VARIABLES {{{
 
 export XDG_CONFIG_HOME=$HOME/.config
-
-export UTORRENT=$HOME/utorrent
-export NLTK_DATA=$HOME/nltk_data
-export TIDE_SDK=$HOME/.tidesdk/sdk/linux/1.3.1-beta
 
 # Disable 'Couldn't connect to accessibility bus' error on opening gnome
 # applications.
