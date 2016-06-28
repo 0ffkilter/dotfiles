@@ -103,9 +103,11 @@ alias tmux="TERM=screen-256color-bce tmux -2"
 
 alias vim='nvim'
 
-alias install='sudo apt-get install'
-alias update='sudo apt-get update'
-alias upgrade='sudo apt-get upgrade'
+alias refresh='sudo pacman -Syy'
+alias update='sudo pacman -Syu'
+
+alias install='sudo pacman -S'
+alias remove='sudo pacman -Rs'
 
 # less with color
 alias less='less -r'
@@ -138,21 +140,6 @@ fi
 ## ALIASES }}}
 
 ## ENVIRONMENT VARIABLES {{{
-
-export XDG_CONFIG_HOME=$HOME/.config
-
-# Disable 'Couldn't connect to accessibility bus' error on opening gnome
-# applications.
-# http://askubuntu.com/questions/227515/terminal-warning-when-opening-a-file-in-gedit
-export NO_AT_BRIDGE=1
-
-# Java
-export JAVA_HOME=/usr/lib/jvm/default-java
-export CS61B_LIBS=$HOME/dev/cs61b/afx/lib
-export CLASSPATH=/usr/local/lib:$JAVA_HOME/lib:$CS61B_LIBS
-IDEA_BIN=$HOME/idea/bin
-ECLIPSE=/opt/eclipse
-
 # solarized .Xresources fix (http://askubuntu.com/questions/302736/solarized-color-name-not-defined)
 export SYSRESOURCES=/etc/X11/Xresources
 export USRRESOURCES=$HOME/.Xresources
@@ -166,41 +153,6 @@ export VIRTUALENVWRAPPER_PYTHON=$THE_ONE_TRUE_PYTHON
 VIRTUALENV_WRAPPER=/usr/local/bin/virtualenvwrapper.sh
 
 [ -f $VIRTUALENV_WRAPPER ] && source $VIRTUALENV_WRAPPER
-
-# Anaconda3
-ANACONDA_HOME=$HOME/anaconda3/bin
-
-# Android
-export ANDROID_HOME=$HOME/android
-export ANDROID_NDK=$ANDROID_HOME/ndk
-export ANDROID_NDK_HOME=$ANDROID_NDK
-export ANDROID_STUDIO=$HOME/android-studio
-ANDROID_PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_NDK
-
-### Added by the Heroku Toolbelt
-export HEROKU_TOOLBELT=/usr/local/heroku/bin
-
-# Git submodule tools
-GIT_SUBMODULE_TOOLS=$HOME/git-submodule-tools
-
-INTEL_HOME=/opt/intel
-INTEL_BIN=$INTEL_HOME/bin
-export INTEL_LICENSE_FILE=$INTEL_HOME/licenses/l_CZSTLDHD.lic
-
-SPARK_HOME=$HOME/spark
-SPARK_BIN=$SPARK_HOME/bin
-
-# LD Path
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$INTEL_HOME/lib/intel64
-
-# ADB path
-
-ADB_PATH=$HOME/adb/platform-tools
-
-
-# PATH
-export PATH=$PATH:$HEROKU_TOOLBELT:$ANDROID_PATH:$ECLIPSE:$TIDE_SDK:$JAVA_HOME:$GIT_SUBMODULE_TOOLS:$IDEA_BIN:$ANACONDA_HOME:$INTEL_BIN:$SPARK_BIN:$ADB_PATH
-
 ## SHELL VARIABLES }}}
 
 ## MISC {{{
@@ -217,13 +169,8 @@ set -o vi
 
 # Open tmux automatically
 # If a session exists, just connect to it instead of creating a new one.
-if [[ -z $TMUX ]]; then
-    if [[ $(tmux ls 2>&1) =~ "no server running" ]]; then
-        tmux
-    else
-        tmux attach
-    fi
-fi
+
+tmux new-session -A -s main
 
 ## MISC }}}
 

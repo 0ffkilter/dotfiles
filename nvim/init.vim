@@ -23,23 +23,43 @@
 
 " BUNDLES {{{
 
+" INITIALIZATION {{{
+
+call plug#begin('~/.vim/plugged')
+
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 
+" INITIALIZATION }}}
+
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
-Plug 'lervag/vimtex'
+Plug 'tpope/vim-fugitive'
+
+Plug '907th/vim-auto-save'
+    let g:auto_save_in_insert_mode = 0
+    let g:auto_save = 1
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+    let g:tex_flavor='latex'
+
 
 Plug 'freeo/vim-kalisi'
-	let g:airline_theme:'kalisi'
+
+" FINISH {{{
+
+call plug#end()
+
+" FINISH }}}
 
 
 " }}}
 
 " GENERAL {{{
-
-    call neobundle#end()
 
     filetype plugin indent on       " detect filetypes
     syntax on                       " syntax highlighting
@@ -71,7 +91,7 @@ Plug 'freeo/vim-kalisi'
 
     " Colorscheme
     set background=dark
-    colorscheme solarized
+    colorscheme kalisi
 
     " Highlight CursorLine as lighter background color
     highlight CursorLine ctermbg=black
@@ -117,6 +137,8 @@ Plug 'freeo/vim-kalisi'
 
     " Remove trailing whitespaces and ^M chars
     autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+    
+    autocmd BufWritePost *.tex Latexmk
 
     " custom text folding function
     function! NeatFoldText()
@@ -186,7 +208,6 @@ Plug 'freeo/vim-kalisi'
 
     " If there are uninstalled bundles found on startup,
     " this will conveniently prompt you to install them.
-    NeoBundleCheck
 
 " }}}
 
