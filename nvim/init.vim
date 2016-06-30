@@ -34,31 +34,69 @@ endfunction
 
 " INITIALIZATION }}}
 
+" Deoplete - Autocomplete {{{
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
     let g:deoplete#enable_at_startup = 1
 
+" }}}
+
+" Vim Fugitive - Git Wrapper {{{
+
 Plug 'tpope/vim-fugitive'
+
+" }}}
+
+" Vim Airline - Buffer Bars {{{
 
 Plug 'vim-airline/vim-airline'
     let g:airline#extensions#tabline#enabled = 1
 
+" }}}
+
+" Vim Auto Save - Auto Saves {{{
+
 Plug '907th/vim-auto-save'
+    " Don't save while typing 
     let g:auto_save_in_insert_mode = 0
+    " Interval, mostly for latex editing
     let g:auto_save = 1
 
+" }}}
+
+" Git Gutter - Git Changes in sidebar {{{
+
 Plug 'airblade/vim-gitgutter'
+
+" }}}
+
+" Latex Box - Latex autocomplete, etc {{{
 
 Plug 'LaTeX-Box-Team/LaTeX-Box'
     let g:tex_flavor='latex'
 
+" }}}
+
+" Nerdcommenter - Quick Commenting {{{
+
 Plug 'scrooloose/nerdcommenter'
+
+" }}}
+
+" Kalisi - Theme {{{
 
 Plug 'freeo/vim-kalisi'
 
+" }}}
+
+" SudoWrite - SudoEdit {{{
+
 Plug 'chrisbra/SudoEdit.vim'
+
+" }}}
 
 " FINISH {{{
 
