@@ -31,7 +31,7 @@ def install_dotfile(dotfile):
             os.remove(dest)
     os.symlink(src, dest)
 
-def install_dotfiles(dotfiles_dir, install_dir):
+def install_dotfiles(dotfiles_dir, install_dir, i3blocks_dir):
     dotfiles = [(path.join(dotfiles_dir, "bashrc"),
                  path.join(install_dir, ".bashrc")),
                 (path.join(dotfiles_dir, "vim", "vimrc"),
@@ -56,7 +56,8 @@ def install_dotfiles(dotfiles_dir, install_dir):
                  path.join(install_dir, ".i3status.conf")),
                 (path.join(dotfiles_dir, "i3"),
                  path.join(install_dir, ".config/i3"))
-
+                (path.join(dotfiles_dir, "i3blocks"),
+                 path.join(i3blocks_dir, ""))
                 ]
 
     force(map(install_dotfile, dotfiles))
@@ -88,6 +89,10 @@ def main():
                        default=os.getenv('HOME'), type=str,
                        help="""Where to install the dotfiles (defaults to
                        $HOME).""")
+    parse.add_argument('--i3blocks-dir', action='store', dest='i3blocks_dir',
+                       default="/usr/lib/i3blocks/", type= str,
+                       help="""Directory of the i3blocks to install
+                       (defaults to /usr/lib/i3blocks).""")
     parse.add_argument('--install-packages', action='store_true',
                        dest='install_packages', default=False,
                        help="""If selected, install dotfile dependencies with the
@@ -95,6 +100,7 @@ def main():
 
     args = parse.parse_args()
 
+    i3blocks_dir = path.abspath(args.i3blocks_dir)
     dotfiles_dir = path.abspath(args.dotfiles_dir)
     install_dir = path.abspath(args.install_dir)
     install_packages = args.install_packages
@@ -102,7 +108,7 @@ def main():
     if install_packages:
 
 
-    install_dotfiles(dotfiles_dir, install_dir)
+    install_dotfiles(dotfiles_dir, install_dir, i3blocks_dir)
 
 if __name__ == "__main__":
     main()
