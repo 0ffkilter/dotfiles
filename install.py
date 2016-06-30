@@ -51,7 +51,12 @@ def install_dotfiles(dotfiles_dir, install_dir):
                 (path.join(dotfiles_dir, "config/git"),
                  path.join(install_dir, ".config/git")),
                 (path.join(dotfiles_dir, "config/htop"),
-                 path.join(install_dir, ".config/htop"))
+                 path.join(install_dir, ".config/htop")),
+                (path.join(dotfiles_dir, "i3status.conf"),
+                 path.join(install_dir, ".i3status.conf")),
+                (path.join(dotfiles_dir, "i3"),
+                 path.join(install_dir, ".config/i3"))
+
                 ]
 
     force(map(install_dotfile, dotfiles))
@@ -95,7 +100,7 @@ def main():
     install_packages = args.install_packages
 
     if install_packages:
-        install_dependencies()
+
 
     install_dotfiles(dotfiles_dir, install_dir)
 

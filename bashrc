@@ -144,6 +144,13 @@ fi
 export SYSRESOURCES=/etc/X11/Xresources
 export USRRESOURCES=$HOME/.Xresources
 
+
+PATH="/home/matthew/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/matthew/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/matthew/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/matthew/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/matthew/perl5"; export PERL_MM_OPT;
+
 # Python
 THE_ONE_TRUE_PYTHON=/usr/bin/python3
 

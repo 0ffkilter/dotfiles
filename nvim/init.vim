@@ -34,7 +34,11 @@ endfunction
 
 " INITIALIZATION }}}
 
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+    let g:deoplete#enable_at_startup = 1
 
 Plug 'tpope/vim-fugitive'
 
@@ -63,12 +67,6 @@ call plug#end()
 
     filetype plugin indent on       " detect filetypes
     syntax on                       " syntax highlighting
-
-	if !has('vim_starting')
-	  " Call on_source hook when reloading .vimrc.
-	  call neobundle#call_hook('on_source')
-	endif
-
     set history=1000                " make the history larger
     set hidden                      " change buffers w/o having to write first
     set mouse=a                     " enable mouse
@@ -132,13 +130,17 @@ call plug#end()
 
     set gdefault                    " always use /g on :s substitution
 
-    set nowrap                      " warp long lines
+    set wrap                      " warp long lines
     set clipboard=unnamedplus       " place yanked text into the clipboard
 
     " Remove trailing whitespaces and ^M chars
     autocmd FileType c,cpp,java,php,js,python,twig,xml,yml autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
     
     autocmd BufWritePost *.tex Latexmk
+
+
+    vmap r "_dP 
+
 
     " custom text folding function
     function! NeatFoldText()
