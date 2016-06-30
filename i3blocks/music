@@ -1,0 +1,10 @@
+#Music player
+
+
+if [[ "$(cat /home/matthew/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jsawk 'return this.playing')" == true ]]
+    then
+
+        echo "$(cat /home/matthew/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jsawk 'return this.song.artist')" - "$(cat /home/matthew/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jsawk 'return this.song.title')"
+
+    else echo ""
+fi

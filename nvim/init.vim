@@ -42,6 +42,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'vim-airline/vim-airline'
+    let g:airline#extensions#tabline#enabled = 1
+
 Plug '907th/vim-auto-save'
     let g:auto_save_in_insert_mode = 0
     let g:auto_save = 1
@@ -51,8 +54,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
     let g:tex_flavor='latex'
 
+Plug 'scrooloose/nerdcommenter'
 
 Plug 'freeo/vim-kalisi'
+
+Plug 'chrisbra/SudoEdit.vim'
 
 " FINISH {{{
 
@@ -65,6 +71,7 @@ call plug#end()
 
 " GENERAL {{{
 
+    filetype plugin on
     filetype plugin indent on       " detect filetypes
     syntax on                       " syntax highlighting
     set history=1000                " make the history larger

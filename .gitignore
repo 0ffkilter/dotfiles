@@ -2,3 +2,5 @@
 *~
 bundle.backup
 .*.swp
+nvim/autoload
+vim/plugged
