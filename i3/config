@@ -50,7 +50,7 @@ bindsym $mod+b exec --no-startup-id i3-msg 'workspace net'; exec chromium
 #music application
 bindsym $mod+m exec --no-startup-id i3-msg 'workspace ♪'; exec --no-startup-id /home/matthew/dev/keyboard_scripts/music_refresh.sh; exec --no-startup-id gpmdp
 
-
+bindsym $mod+o exec --no-startup-id i3-msg 'workspace set'; exec --no-startup-id cinnamon-settings
 
 ## }}}
 
@@ -117,7 +117,7 @@ bindsym $mod+a focus parent
 bindsym $mod+1 workspace con
 bindsym $mod+2 workspace net
 bindsym $mod+3 workspace ♪
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace set
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -129,7 +129,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace con
 bindsym $mod+Shift+2 move container to workspace net
 bindsym $mod+Shift+3 move container to workspace ♪
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace set
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7

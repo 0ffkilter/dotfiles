@@ -109,6 +109,8 @@ alias update='sudo pacman -Syu'
 alias install='sudo pacman -S'
 alias remove='sudo pacman -Rs'
 
+alis sml='rlwrap sml'
+
 # less with color
 alias less='less -r'
 

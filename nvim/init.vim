@@ -63,7 +63,7 @@ Plug '907th/vim-auto-save'
     " Don't save while typing 
     let g:auto_save_in_insert_mode = 0
     " Interval, mostly for latex editing
-    let g:auto_save = 1
+    let g:auto_save = 30
 
 " }}}
 
@@ -98,11 +98,24 @@ Plug 'chrisbra/SudoEdit.vim'
 
 " }}}
 
+" Vim-Javascript - Javascript Highlighting {{{
+
+Plug 'pangloss/vim-javascript'
+
+" }}}
+
+" Jedi-Vim - Python Editing {{{
+
+Plug 'davidhalter/jedi-vim'
+
+" }}}
+
 " FINISH {{{
 
 call plug#end()
 
 " FINISH }}}
+
 
 
 " }}}
