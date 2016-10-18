@@ -55,7 +55,7 @@ def install_dotfiles(dotfiles_dir, install_dir, i3blocks_dir):
                 (path.join(dotfiles_dir, "i3status.conf"),
                  path.join(install_dir, ".i3status.conf")),
                 (path.join(dotfiles_dir, "i3"),
-                 path.join(install_dir, ".config/i3"))
+                 path.join(install_dir, ".config/i3")),
                 (path.join(dotfiles_dir, "i3blocks"),
                  path.join(i3blocks_dir, ""))
                 ]
@@ -106,8 +106,8 @@ def main():
     install_packages = args.install_packages
 
     if install_packages:
-
-
+      install_dependencies()
+        
     install_dotfiles(dotfiles_dir, install_dir, i3blocks_dir)
 
 if __name__ == "__main__":
